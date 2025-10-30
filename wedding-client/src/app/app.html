@@ -1,5 +1,24 @@
+<div class="flex flex-col items-center justify-center gap-4 mb-8">
+    <img class="w-[225px]" src="../assets/images/tk-logo.png" alt="Left Blossom">
+    <div class="alt-text text-8xl font-semibold">Kristin & Travis</div>
+    <div class="alt-text text-4xl flex flex-row gap-4">
+        <div>Saturday July 25, 2026</div>
+        <div>|</div>
+        <div>Elk Ridge, Sk</div>
+    </div>
+
+    <div class="alt-text text-2xl">{{daysToWedding}} Days to go!</div>
+
+    <div class="flex flex-row gap-4 text-2xl cursor-pointer">
+      <div class="hover:underline" routerLink="/home" routerLinkActive="underline" [routerLinkActiveOptions]="{exact: true}">Home</div>
+      <div class="hover:underline" routerLink="/accommodations" routerLinkActive="underline">Accommodations</div>
+      <div class="hover:underline" routerLink="/questions" routerLinkActive="underline">Q + A</div>
+      <div class="hover:underline" routerLink="/tasks" routerLinkActive="underline">Tasks</div>
+    </div>
+
+   <router-outlet />
+  
+</div>
 
 
 
-
-<router-outlet />

@@ -1,5 +1,5 @@
 /* Global styles for the Save-the-Date site */
-
+@use "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap');
 
@@ -17,7 +17,7 @@ html, body {
 	padding: 0;
 	background: var(--cream);
 	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'EB Garamond', Georgia, serif;
-	color: var(--text-muted);
+	color: var(--muted-olive);
 }
 
 /* small utility */
@@ -56,18 +56,11 @@ html, body {
     border: 1px solid rgba(0,0,0,0.04);
   }
 
-  .hero {
-    width: 100%;
-    height: 420px;
-    background-image: url('/public/save-the-date.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 22px;
-    border: 8px solid var(--mustard);
-    box-sizing: border-box;
+  .alt-text {
+	color: var(--muted-olive);
   }
 
-  .heading-small {
+  .heading {
     margin-top: 18px;
     text-align: center;
     letter-spacing: 0.12em;
