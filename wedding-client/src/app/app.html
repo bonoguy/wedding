@@ -1,24 +1,26 @@
-<div class="flex flex-col items-center justify-center gap-4 mb-8">
-    <img class="w-[225px]" src="../assets/images/tk-logo.png" alt="Left Blossom">
-    <div class="alt-text text-8xl font-semibold">Kristin & Travis</div>
-    <div class="alt-text text-4xl flex flex-row gap-4">
-        <div>Saturday July 25, 2026</div>
-        <div>|</div>
-        <div>Elk Ridge, Sk</div>
-    </div>
+<main class="site-shell">
+  <section class="hero-card">
+    <header class="hero-header">
+      <img class="hero-logo" src="../assets/images/tk-logo.png" alt="Kristin and Travis monogram">
+      <p class="eyebrow">Together with their families</p>
+      <h1 class="hero-names">Kristin <span class="ampersand">&amp;</span> Travis</h1>
+      <div class="hero-details">
+        <span>Saturday July 25, 2026</span>
+        <span class="dot">•</span>
+        <span>Elk Ridge, SK</span>
+      </div>
+      <div class="hero-countdown">{{daysToWedding}} Days to go!</div>
+    </header>
 
-    <div class="alt-text text-2xl">{{daysToWedding}} Days to go!</div>
+    <nav class="primary-nav" aria-label="Primary">
+      <a routerLink="/home" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/accommodations" routerLinkActive="is-active">Accommodations</a>
+      <a routerLink="/questions" routerLinkActive="is-active">Q + A</a>
+      <a routerLink="/tasks" routerLinkActive="is-active">Tasks</a>
+    </nav>
+  </section>
 
-    <div class="flex flex-row gap-4 text-2xl cursor-pointer">
-      <div class="hover:underline" routerLink="/home" routerLinkActive="underline" [routerLinkActiveOptions]="{exact: true}">Home</div>
-      <div class="hover:underline" routerLink="/accommodations" routerLinkActive="underline">Accommodations</div>
-      <div class="hover:underline" routerLink="/questions" routerLinkActive="underline">Q + A</div>
-      <div class="hover:underline" routerLink="/tasks" routerLinkActive="underline">Tasks</div>
-    </div>
-
-   <router-outlet />
-  
-</div>
-
-
-
+  <section class="content-card">
+    <router-outlet />
+  </section>
+</main>
