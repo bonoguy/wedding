@@ -1,47 +1,238 @@
-<div class="flex flex-col gap-4 items-center justify-center">
-    <div class="card">
-        <div class="hero" role="img" aria-label="Kristin and Travis"></div>
-    </div>
+<!-- PHOTO CARD (overlapping) -->
+<section id="photo" class="relative -mt-16 sm:-mt-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div
+            class="relative overflow-hidden rounded-3xl bg-white/70 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)] ring-1 ring-black/5">
+            <div class="grid grid-cols-1 lg:grid-cols-5">
+                <!-- Image -->
+                <div class="lg:col-span-3">
+                    <div class="h-[360px] sm:h-[460px] lg:h-full bg-center bg-cover"
+                        [style.backgroundImage]="'url(' + photoUrl + ')'" role="img"
+                        aria-label="Photo of Kristin and Travis">
+                    </div>
+                </div>
 
-    <div class="card schedule-card">
-        <div class="alt-text text-4xl">Schedule</div>
-        <div class="divider-line" aria-hidden="true"></div>
-        <div class="schedule-venue">Elk Ridge Resort</div>
-        <div class="schedule-list">
-            <div class="schedule-row">
-                <div class="schedule-time">3:30 PM</div>
-                <div class="schedule-divider" aria-hidden="true"></div>
-                <div class="schedule-detail">Ceremony - Pond Patio</div>
-            </div>
-       <div class="flex flex-col gap-4 items-center justify-center">
-    <div class="card">
-        <div class="hero" role="img" aria-label="Kristin and Travis"></div>
-    </div>
+                <!-- Text -->
+                <div class="lg:col-span-2 relative p-8 sm:p-10 lg:p-12">
+                    <p class="text-xs tracking-[0.28em] uppercase text-black/45">
+                        A weekend we can’t wait to share
+                    </p>
 
-    <div class="card text-center">
-        <div class="alt-text text-4xl">Wedding Day</div>
-        <div class="divider-line" aria-hidden="true"></div>
-        <div class="">Elk Ridge Resort</div>
-        <div class="">Ceremony - Pond Patio - 3:30PM</div>
-        <div class="">Cocktail Hour - Pond Patio - 4:00PM</div>
-        <div class="">Dinner - Whitetail Room - 5:30PM</div>
-        <div class="">Reception & Dance to follow</div>
-    </div>
-</div>     <div class="schedule-row">
-                <div class="schedule-time">4:00 PM</div>
-                <div class="schedule-divider" aria-hidden="true"></div>
-                <div class="schedule-detail">Cocktail Hour - Pond Patio</div>
-            </div>
-            <div class="schedule-row">
-                <div class="schedule-time">5:30 PM</div>
-                <div class="schedule-divider" aria-hidden="true"></div>
-                <div class="schedule-detail">Dinner - Whitetail Room</div>
-            </div>
-            <div class="schedule-row">
-                <div class="schedule-time">Following</div>
-                <div class="schedule-divider" aria-hidden="true"></div>
-                <div class="schedule-detail">Reception &amp; Dance</div>
+                    <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-black/75">
+                        We’re so happy you’re here
+                    </h2>
+
+                    <p class="mt-4 text-black/60 leading-relaxed">
+                        We’re so excited to celebrate in Elk Ridge with the people we love most.
+                        This site has everything you’ll need for the weekend — travel, places to stay, and a few fun
+                        extras.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a routerLink="/accommodations"
+                            class="inline-flex items-center justify-center rounded-full bg-[#D9A441] px-5 py-3 text-sm font-medium text-black/80 shadow-sm hover:opacity-90 transition">
+                            Where to stay
+                        </a>
+
+                        <a routerLink="/questions"
+                            class="inline-flex items-center justify-center rounded-full border border-black/10 bg-white/60 px-5 py-3 text-sm font-medium text-black/70 shadow-sm hover:bg-white/80 transition">
+                            Q + A
+                        </a>
+                    </div>
+
+                    <p class="mt-8 text-sm text-black/45">
+                        Tip: bookmark this page — we’ll keep it updated.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+<section id="schedule" class="pt-16 sm:pt-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+            <div class="relative p-8 sm:p-10 lg:p-12">
+                <!-- Header -->
+                <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+                    The day at a glance
+                </p>
+
+                <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-black/75">
+                    Schedule
+                </h2>
+
+                <p class="mt-3 max-w-xl text-black/60">
+                    We’ll keep things relaxed — this is just a general guide so you know what to expect.
+                </p>
+
+                <!-- Timeline -->
+                <ol class="mt-10 space-y-6">
+                    @for(item of schedule; track item.title) {
+                    <li class="relative pl-14">
+                        <!-- Dot -->
+                        <span class="absolute left-[1.55rem] top-2 block h-3 w-3 rounded-full bg-[#D9A441]"></span>
+
+                        <!-- Vertical line -->
+                        @if(!$last) {
+                        <span class="absolute left-[1.85rem] top-6 block h-full w-px bg-black/10"></span>
+                        }
+
+
+                        <!-- Content -->
+                        <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-6">
+                            <time class="font-medium text-black/70 sm:w-24 shrink-0">
+                                {{ item.time }}
+                            </time>
+
+                            <p class="text-black/65">
+                                {{ item.title }}
+                            </p>
+                        </div>
+                    </li>
+                    }
+
+                </ol>
+
+                <!-- Gentle note -->
+                <p class="mt-10 text-sm text-black/45">
+                    Timing may shift slightly — we’ll go with the flow.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="pt-16 sm:pt-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+
+            <div class="relative p-8 sm:p-10 lg:p-12">
+                <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+                    A few favorites
+                </p>
+
+                <div class="mt-4 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <h2 class="font-serif text-3xl sm:text-4xl text-black/75">Photos</h2>
+                    <p class="text-sm text-black/45 max-w-md">
+                        Some moments from along the way.
+                    </p>
+                </div>
+
+                <!-- Grid -->
+                <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
+                    @for(img of gallery; track img.src) {
+                    <figure class="group relative overflow-hidden rounded-2xl bg-black/5 ring-1 ring-black/5">
+                        <button type="button" class="block w-full text-left" (click)="openLightbox($index)"
+                            [attr.aria-label]="'Open photo ' + ($index + 1)">
+                            <!-- Image -->
+                            <img [src]="img.src" [alt]="img.alt" loading="lazy"
+                                class="h-44 sm:h-56 w-full object-cover transition duration-300 group-hover:scale-[1.02]" />
+
+                            <!-- Soft hover overlay -->
+                            <div
+                                class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/10 transition">
+                            </div>
+                        </button>
+                    </figure>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="our-story" class="pt-16 sm:pt-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+            <div class="relative p-8 sm:p-10 lg:p-12">
+                <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+                    {{ ourStory.eyebrow }}
+                </p>
+
+                <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-black/75">
+                    {{ ourStory.title }}
+                </h2>
+
+                <p class="mt-4 max-w-3xl text-black/60 leading-relaxed">
+                    {{ ourStory.intro }}
+                </p>
+
+                <!-- Highlight blocks -->
+                <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    @for(h of ourStory.highlights; track h.body) {
+                    <div class="rounded-2xl bg-white/55 ring-1 ring-black/5 p-6">
+                        <h3 class="font-serif text-xl text-black/75">
+                            {{ h.heading }}
+                        </h3>
+                        <p class="mt-3 text-black/60 leading-relaxed">
+                            {{ h.body }}
+                        </p>
+                    </div>
+                    }
+
+                </div>
+
+                <p class="mt-10 text-sm text-black/45">
+                    We’ll keep this part simple — just enough to share the story behind the weekend.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+@if(lightboxOpen()) {
+<div class="fixed inset-0 z-[100] flex items-center justify-center" tabindex="0" (keydown)="onLightboxKeydown($event)"
+    aria-modal="true" role="dialog">
+    <!-- Backdrop -->
+    <button type="button" class="absolute inset-0 bg-black/70" aria-label="Close lightbox"
+        (click)="closeLightbox()"></button>
+
+    <!-- Panel -->
+    <div class="relative w-[92vw] max-w-5xl">
+        <!-- Top controls -->
+        <div class="absolute -top-12 right-0 flex items-center gap-2">
+            <span class="text-white/80 text-sm">
+                {{ lightboxIndex() + 1 }} / {{ gallery.length }}
+            </span>
+
+            <button type="button"
+                class="rounded-full bg-white/15 px-4 py-2 text-sm text-white hover:bg-white/25 transition"
+                (click)="closeLightbox()" aria-label="Close">
+                Close ✕
+            </button>
+        </div>
+
+        <!-- Image container -->
+        <div
+            class="relative overflow-hidden rounded-3xl bg-black/20 ring-1 ring-white/10 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)]">
+            <img [src]="gallery[lightboxIndex()].src" [alt]="gallery[lightboxIndex()].alt"
+                class="max-h-[80vh] w-full object-contain bg-black/30" draggable="false" />
+
+            <!-- Prev/Next buttons -->
+            <button type="button"
+                class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-3 text-white hover:bg-white/25 transition"
+                (click)="prevImage()" aria-label="Previous image">
+                ‹
+            </button>
+
+            <button type="button"
+                class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/15 p-3 text-white hover:bg-white/25 transition"
+                (click)="nextImage()" aria-label="Next image">
+                ›
+            </button>
+        </div>
+
+        <!-- Caption -->
+        <p class="mt-4 text-center text-sm text-white/80">
+            {{ gallery[lightboxIndex()].alt }}
+        </p>
+
+        <!-- Hint -->
+        <p class="mt-2 text-center text-xs text-white/60">
+            Use ← → keys to navigate, ESC to close
+        </p>
+    </div>
 </div>
+}
