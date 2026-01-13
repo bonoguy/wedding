@@ -1,52 +1,76 @@
 <section id="elk-ridge" class="pt-12 sm:pt-16">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="relative overflow-hidden rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
-      <div class="relative p-8 sm:p-10 lg:p-12">
+    <div class="rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+      <div class="p-8 sm:p-10 lg:p-12">
+        <!-- Header -->
         <p class="text-xs tracking-[0.28em] uppercase text-black/40">
           {{ elkRidgeInfo.eyebrow }}
         </p>
 
-        <div class="mt-4 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
-          <div class="max-w-2xl">
-            <h2 class="font-serif text-3xl sm:text-4xl text-black/75">
-              {{ elkRidgeInfo.title }}
-            </h2>
+        <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-black/75">
+          {{ elkRidgeInfo.title }}
+        </h2>
 
-            @for(p of elkRidgeInfo.intro; track $index) {
-            <p class="mt-4 text-black/60 leading-relaxed">
-              {{ p }}
-            </p>
-            }
+        <!-- Intro paragraph (unchanged) -->
+        <p class="mt-4 max-w-3xl text-black/60 leading-relaxed">
+          {{ elkRidgeInfo.intro }}
+        </p>
 
-            <p class="mt-6 text-sm text-black/45">
-              {{ elkRidgeInfo.note }}
-            </p>
-          </div>
+        <!-- Two-column content -->
+        <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Map placeholder -->
+          <div class="rounded-2xl bg-black/5 ring-1 ring-black/5 p-6">
+            <h3 class="font-serif text-xl text-black/75">
+              Getting there
+            </h3>
 
-          <!-- Quick facts -->
-          <div class="w-full max-w-xl rounded-2xl bg-white/55 ring-1 ring-black/5 p-6">
-            <h3 class="font-serif text-xl text-black/75">Quick notes</h3>
+            <div class="mt-4 rounded-xl bg-white/60 ring-1 ring-black/5 p-4 text-sm text-black/45">
 
-            <dl class="mt-4 space-y-4">
-              @for ( b of elkRidgeInfo.bullets; track $index) {
-              <div class="flex gap-4">
-                <dt class="w-28 shrink-0 text-sm text-black/45">
-                  {{ b.label }}
-                </dt>
-                <dd class="text-sm text-black/65">
-                  {{ b.value }}
-                </dd>
-              </div>
-              }
-
-            </dl>
-
-            <!-- Placeholder for map later -->
-            <div class="mt-6 rounded-2xl bg-black/5 ring-1 ring-black/5 p-4 text-sm text-black/45">
-              <span class="font-medium text-black/60">Map spot:</span>
-              add a simple map embed or screenshot here later.
+              <a href="https://maps.app.goo.gl/KMc5VvmNwzT5i3K19" target="_blank">
+                <img src="../../assets/images/map.png" title="click to open map" loading="lazy" />
+              </a>
             </div>
           </div>
+
+          <!-- Room block info -->
+          @if (roomBlock) {
+          <div class="rounded-2xl bg-white/55 ring-1 ring-black/5 p-6">
+            <h3 class="font-serif text-xl text-black/75">
+              Rooms at Elk Ridge
+            </h3>
+
+            <p class="mt-4 text-black/60 leading-relaxed">
+              We’ve reserved a small block of rooms available
+              for our guests. If you’re planning to stay on-site, this is the easiest option.
+            </p>
+
+            <div class="mt-5 flex flex-col sm:flex-row sm:items-center gap-3">
+              <span class="rounded-full bg-black/5 px-4 py-2 text-sm text-black/70">
+                Booking code:
+                <strong class="font-medium">
+                  {{ roomBlock.code }}
+                </strong>
+              </span>
+
+              <span class="text-sm text-black/45">
+                Available until {{ roomBlock.deadline }}
+              </span>
+            </div>
+
+            <p class="mt-4 text-sm text-black/45">
+              Availability is limited, so we recommend booking early.
+            </p>
+
+            <div class="mt-6">
+              <a href="https://www.elkridgeresort.com/" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full
+             bg-[#D9A441] px-6 py-3
+             text-sm font-medium text-black/80
+             shadow-sm hover:opacity-90 transition">
+                Book at Elk Ridge →
+              </a>
+            </div>
+          </div>
+          }
         </div>
       </div>
     </div>
@@ -58,18 +82,8 @@
     <div class="rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
       <div class="p-8 sm:p-10 lg:p-12">
         <p class="text-xs tracking-[0.28em] uppercase text-black/40">
-          Where to stay
+          Other options nearby 
         </p>
-
-        <div class="mt-4 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <h2 class="font-serif text-3xl sm:text-4xl text-black/75">
-            Cabin options nearby
-          </h2>
-
-          <p class="text-sm text-black/45 max-w-md">
-            We’ll keep updating this list as we find good options. Summer weekends book up quickly.
-          </p>
-        </div>
 
         <!-- Cabin cards -->
         <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -99,20 +113,6 @@
               </li>
               }
             </ul>
-
-            <div class="mt-6">
-              @if (opt.linkHref) {
-              <a class="inline-flex items-center justify-center rounded-full bg-[#D9A441] px-4 py-2 text-sm font-medium text-black/80 shadow-sm hover:opacity-90 transition"
-                [href]="opt.linkHref" target="_blank" rel="noopener">
-                {{ opt.linkText }} →
-              </a>
-              } @else {
-              <span
-                class="inline-flex items-center rounded-full border border-black/10 bg-white/50 px-4 py-2 text-sm text-black/45">
-                {{ opt.linkText }} (fill in)
-              </span>
-              }
-            </div>
           </article>
           }
         </div>

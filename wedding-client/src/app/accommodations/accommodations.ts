@@ -11,33 +11,24 @@ export class Accommodations {
   elkRidgeInfo = {
     eyebrow: 'Staying in the area',
     title: 'About Elk Ridge',
-    intro: [
-      'Elk Ridge is a resort community near Waskesiu in Prince Albert National Park — quiet, wooded, and beautiful in the summer.',
-      ''
-    ],
-      
-    bullets: [
-      { label: 'Vibe', value: 'Relaxed, lakes-and-forest weekend' },
-      { label: 'Closest hub', value: 'Waskesiu Lake (shops, restaurants, lakefront)' },
-      { label: 'Drive notes', value: 'Expect limited cell service in spots and slower night driving' },
-      { label: 'Arrival tip', value: 'If you’re arriving late, grab essentials before heading in' },
-    ],
-    note:
-      'We’ll add exact venue directions + parking info closer to the date.',
+    intro: 'Elk Ridge is a resort community near Waskesiu in Prince Albert National Park — quiet, wooded, and beautiful in the summer.',
   };
+
+  roomBlock = {
+    code: 1234,
+    deadline: 'April 30, 2026'
+  }
 
   cabinOptions = [
     {
-      name: 'Elk Ridge Resort (on-site)',
+      name: 'Camping',
       area: 'Elk Ridge',
-      distance: '0–5 min',
+      distance: '0–40 min',
       details: [
-        'Easiest option — walk/short drive to everything',
-        'Mix of hotel-style rooms and resort accommodations',
-        'Great if you want maximum convenience',
-      ],
-      linkText: 'Add booking link',
-      linkHref: '', // fill in
+        'Prince Albert National Park',
+        'Greate Blue Heron Provincal Park (Emma/Anglin Lake)',
+        'Christoper Lake'
+      ]
     },
     {
       name: 'Waskesiu Lake cabins',
@@ -47,9 +38,7 @@ export class Accommodations {
         'Closest “town” feel — lake, restaurants, rentals',
         'A great option for families / longer stays',
         'Book early (summer fills fast)',
-      ],
-      linkText: 'Add booking link',
-      linkHref: '', // fill in
+      ]
     },
     {
       name: 'Airbnb / private cabins nearby',
@@ -57,11 +46,8 @@ export class Accommodations {
       distance: '10–45 min',
       details: [
         'Best for groups splitting costs',
-        'Look for: number of beds, parking, and check-in flexibility',
-        'We’ll add a short list of favorites here',
-      ],
-      linkText: 'Add a list link',
-      linkHref: '', // fill in
+        'Lots of options available',
+      ]
     },
   ];
 

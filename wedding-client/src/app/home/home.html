@@ -1,4 +1,7 @@
 <!-- PHOTO CARD (overlapping) -->
+<!-- Spacer so the photo can overlap -->
+<div class="h-10 sm:h-16"></div>
+
 <section id="photo" class="relative -mt-16 sm:-mt-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div
@@ -48,6 +51,45 @@
         </div>
     </div>
 </section>
+
+<section id="rsvp" class="relative pt-12 sm:pt-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+            <div class="p-8 sm:p-10 lg:p-12 text-center">
+                <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+                    Please respond by {{ rsvp.deadline }}
+                </p>
+
+                <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-black/75">
+                    RSVP
+                </h2>
+
+                <p class="mt-4 max-w-xl mx-auto text-black/60 leading-relaxed">
+                    The easiest way to RSVP is to email us.
+                    Click below and it’ll start a message with everything you need.
+                </p>
+
+                <div class="mt-8">
+                    <a class="inline-flex items-center justify-center rounded-full
+                   bg-[#D9A441] px-6 py-3
+                   text-sm font-medium text-black/80
+                   shadow-sm hover:opacity-90 transition" [href]="rsvpMailto">
+                        RSVP by email →
+                    </a>
+                </div>
+
+                <p class="mt-6 text-sm text-black/45">
+                    Or send an email to <span>{{rsvp.email}}</span>
+                </p>
+
+                <p class="mt-6 text-sm text-black/45">
+                    Just include the names of everyone attending, and any allergies we should know about.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section id="schedule" class="pt-16 sm:pt-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

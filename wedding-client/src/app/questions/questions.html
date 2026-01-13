@@ -1,5 +1,49 @@
-<div class="card text-center">
-    <div class="alt-text text-4xl">Is it going to be funs?</div>
-    <div class="divider-line" aria-hidden="true"></div>
-    <div class="">Yes</div>
-</div>
+<section id="qa" class="pt-12 sm:pt-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+            <div class="p-8 sm:p-10 lg:p-12">
+                <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+                    Helpful details
+                </p>
+
+                <div class="mt-4 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                    <h2 class="font-serif text-3xl sm:text-4xl text-black/75">
+                        Q + A
+                    </h2>
+                    <p class="text-sm text-black/45 max-w-md">
+                        A few common questions — if you’re unsure, just ask us.
+                    </p>
+                </div>
+
+                <div class="mt-10 grid grid-cols-1 gap-6">
+                    @for (item of faq; track item.question) {
+                    <article class="rounded-2xl bg-white/55 ring-1 ring-black/5 p-6">
+                        <h3 class="font-serif text-xl text-black/75">
+                            {{ item.question }}
+                        </h3>
+
+                        <p class="mt-3 text-black/60 leading-relaxed">
+                            {{ item.answer }}
+                        </p>
+
+                        @if (item.linkHref) {
+                        <div class="mt-5">
+                            <a [href]="item.linkHref" target="_blank" rel="noopener" class="inline-flex items-center rounded-full
+                             border border-black/10 bg-white/60
+                             px-4 py-2 text-sm font-medium text-black/70
+                             hover:bg-white/80 transition">
+                                {{ item.linkText }} →
+                            </a>
+                        </div>
+                        }
+                    </article>
+                    }
+                </div>
+
+                <p class="mt-10 text-sm text-black/45">
+                    Still wondering something? Text us anytime.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -48,6 +48,30 @@ export class HomeComponent {
     ],
   };
 
+  rsvp = {
+    email: 'youremail@example.com', // replace
+    deadline: 'May 30',
+    subject: 'RSVP — Kristin & Travis',
+    body: `Hi Kristin & Travis,
+
+We’re RSVP’ing for the following guest(s):
+
+Names:
+Attending: Yes / No
+Allergies or dietary restrictions (if any):
+
+Looking forward to celebrating with you!
+`,
+  };
+
+  get rsvpMailto(): string {
+    return (
+      'mailto:' + this.rsvp.email +
+      '?subject=' + encodeURIComponent(this.rsvp.subject) +
+      '&body=' + encodeURIComponent(this.rsvp.body)
+    );
+  }
+
   lightboxOpen = signal(false);
   lightboxIndex = signal(0);
 
