@@ -1,5 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
+  authService = inject(AuthService);
+
   names = 'Kristin & Travis';
   dateLine = 'Saturday, July 25, 2026 · Elk Ridge, SK';
 

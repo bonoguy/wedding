@@ -1,13 +1,19 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home';
-import { Accommodations } from './accommodations/accommodations';
-import { Tasks } from './tasks/tasks';
-import { Questions } from './questions/questions';
+import { authGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'accommodations', component: Accommodations },
-  { path: 'tasks', component: Tasks },
-  { path: 'questions', component: Questions },
+  {
+    path: 'unlock',
+    loadComponent: () =>
+      import('./unlock/unlock').then(m => m.Unlock),
+  },
+  {
+    path: '',
+    canMatch: [authGuard],
+    loadChildren: () =>
+      import('./site.routes').then(m => m.siteRoutes),
+  },
+  { path: '**', redirectTo: '' },
+
+  
 ];

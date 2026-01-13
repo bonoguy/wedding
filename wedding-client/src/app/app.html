@@ -1,5 +1,6 @@
 <div class="min-h-screen bg-[#F7F1E7] text-[#2F3A2E]">
   <!-- Soft header -->
+  @if(authService.isUnlocked()) {
   <header class="sticky top-0 z-50">
     <div class="backdrop-blur-md bg-[#F7F1E7]/75 border-b border-black/5">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -48,9 +49,12 @@
       </div>
     </div>
   </header>
+  }
+
 
   <!-- HERO -->
   <main id="home">
+    @if(authService.isUnlocked()) {
     <section class="relative">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="relative pt-14 sm:pt-20 pb-12 sm:pb-16">
@@ -91,9 +95,10 @@
       </div>
     </section>
 
+    }
     <router-outlet />
 
-
+    @if(authService.isUnlocked()) {
     <!-- SECTION CARDS -->
     <section class="pt-14 sm:pt-18">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -124,5 +129,6 @@
         </div>
       </div>
     </section>
+    }
   </main>
 </div>
