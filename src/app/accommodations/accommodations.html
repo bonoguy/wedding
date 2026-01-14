@@ -1,6 +1,6 @@
-<section id="elk-ridge" class="pt-12 sm:pt-16">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+<section id="elk-ridge" class="card">
+  <div class="">
+    <div class="">
       <div class="p-8 sm:p-10 lg:p-12">
         <!-- Header -->
         <p class="text-xs tracking-[0.28em] uppercase text-black/40">
@@ -77,9 +77,9 @@
   </div>
 </section>
 
-<section id="cabins" class="pt-12 sm:pt-16">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-    <div class="rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+<section id="cabins" class="card">
+  <div class="">
+    <div class="">
       <div class="p-8 sm:p-10 lg:p-12">
         <p class="text-xs tracking-[0.28em] uppercase text-black/40">
           Other options nearby 
@@ -88,7 +88,7 @@
         <!-- Cabin cards -->
         <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
           @for (opt of cabinOptions; track opt.name) {
-          <article class="rounded-2xl bg-white/55 ring-1 ring-black/5 p-6">
+          <article class="card-item">
             <div class="flex items-start justify-between gap-4">
               <div>
                 <h3 class="font-serif text-xl text-black/75">

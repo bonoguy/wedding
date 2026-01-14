@@ -156,92 +156,43 @@ html, body {
   color: var(--muted-olive);
 }
 
-.schedule-card {
-  text-align: left;
-}
 
-.schedule-venue {
-  font-weight: 600;
-  color: #5f573f;
-  margin-bottom: 1rem;
-  text-align: center;
-}
 
-.schedule-list {
-  display: grid;
-  gap: 0.85rem;
-  margin-top: 1rem;
-}
 
-.schedule-row {
-  display: grid;
-  grid-template-columns: minmax(90px, 120px) 32px 1fr;
-  gap: 1.25rem;
-  align-items: start;
-}
+.card {
+  @apply relative;
 
-.schedule-time {
-  font-weight: 700;
-  color: var(--accent-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-}
-
-.schedule-detail {
-  color: var(--muted-olive);
-  font-weight: 500;
-  text-align: left;
-}
-
-.schedule-divider {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
-}
-
-.schedule-divider::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background: rgba(200, 141, 38, 0.35);
-  border-radius: 999px;
-}
-
-.schedule-divider::after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent-dark);
-  box-shadow: 0 0 0 6px rgba(200, 141, 38, 0.15);
-  z-index: 1;
-}
-
-@media (max-width: 700px) {
-  .hero-card,
-  .content-card {
-    padding: 2rem 1.5rem;
-    border-radius: 16px;
+  &:first-of-type {
+     @apply -mt-16 sm:-mt-20;
   }
 
-  .hero-details {
-    gap: 0.4rem;
+  &:not(:first-of-type) {
+    @apply pt-12 sm:pt-16
   }
 
-  .primary-nav {
-    gap: 0.4rem;
-  }
+  > div {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
 
-  .schedule-row {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-  }
-
-  .schedule-divider {
-    display: none;
+    > div {
+      @apply relative overflow-hidden rounded-3xl bg-white/70 ring-1 ring-black/5;
+      @apply shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)];
+    }
   }
 }
+
+.card-item {
+  @apply rounded-2xl bg-white/80 ring-1 ring-black/10 shadow-sm transition hover:shadow-md p-6;
+}
+
+.button-primary {
+  @apply inline-flex items-center justify-center rounded-full
+                   bg-[#D9A441] px-6 py-3
+                   text-sm font-medium text-black/80
+                   cursor-pointer   
+                   shadow-sm hover:opacity-90 transition
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-black/10 bg-white/60 px-5 py-3 text-sm font-medium text-black/70 shadow-sm hover:bg-white/80 transition cursor-pointer;
+}
+

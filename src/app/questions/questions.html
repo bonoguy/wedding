@@ -1,6 +1,6 @@
-<section id="qa" class="pt-12 sm:pt-16">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div class="rounded-3xl bg-white/60 ring-1 ring-black/5 shadow-sm">
+<section id="qa" class="card">
+    <div class="">
+        <div class="">
             <div class="p-8 sm:p-10 lg:p-12">
                 <p class="text-xs tracking-[0.28em] uppercase text-black/40">
                     Helpful details
@@ -17,7 +17,7 @@
 
                 <div class="mt-10 grid grid-cols-1 gap-6">
                     @for (item of faq; track item.question) {
-                    <article class="rounded-2xl bg-white/55 ring-1 ring-black/5 p-6">
+                    <article class="card-item">
                         <h3 class="font-serif text-xl text-black/75">
                             {{ item.question }}
                         </h3>
