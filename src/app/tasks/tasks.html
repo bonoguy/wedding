@@ -1,5 +1,70 @@
-<div class="card text-center">
-    <div class="alt-text text-4xl">Taskmaster Tasks</div>
-    <div class="divider-line" aria-hidden="true"></div>
-    <div class="">TBD</div>
-</div>
+<section class="card">
+    <div>
+        <div>
+            <div class="p-8 sm:p-10 lg:p-12">
+                <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+                    Taskmaster
+                </p>
+
+                <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+                    <!-- Copy -->
+                    <div class="space-y-4">
+                        <h2 class="font-serif text-3xl sm:text-4xl text-black/75">
+                            Why we’re doing this
+                        </h2>
+
+                        <p class="text-black/60 leading-relaxed">
+                            Taskmaster has been one of our favorite shows to watch together — the perfect mix of
+                            creativity,
+                            chaos, and laughing until it hurts.
+                        </p>
+
+                        <p class="text-black/60 leading-relaxed">
+                            Over the years we’ve even hosted a few “Taskmaster nights” with friends, making up
+                            ridiculous
+                            challenges and arguing (politely) about points.
+                        </p>
+
+                        <p class="text-black/60 leading-relaxed">
+                            So we wanted to bring that same energy into the wedding — a few fun, low-pressure tasks you
+                            can
+                            do before the day, just for bragging rights (and possibly some prizes or even a golden head).
+                        </p>
+
+                        <div class="pt-2 text-sm text-black/45">
+                            No pressure to do them all — pick one that feels fun.
+                        </div>
+                    </div>
+
+                    <!-- Video -->
+                    <div class="card-item">
+                        <div class="aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-black/5 bg-black/5">
+                            <!-- Replace VIDEO_ID later -->
+                            <iframe class="h-full w-full" src="https://www.youtube.com/embed/2aPGBlMLWw4"
+                                title="Taskmaster intro" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <p class="mt-4 text-sm text-black/45">
+                            If you’ve never seen it, this quick intro explains the vibe.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@for (t of tasks; track t.id) {
+<section class="card">
+    <div>
+        <div class="p-8 sm:p-10 lg:p-12">
+            <app-task-card [task]="t"></app-task-card>
+        </div>
+    </div>
+</section>
+
+}

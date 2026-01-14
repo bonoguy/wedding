@@ -156,8 +156,30 @@ html, body {
   color: var(--muted-olive);
 }
 
+dialog {
+  border: none;
+  padding: 0;
+  background: transparent; /* lets your inner panel be the visible surface */
+}
 
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
 
+/* Center it reliably */
+dialog[open] {
+  position: fixed;
+  inset: 0;              /* top/right/bottom/left: 0 */
+  margin: auto;
+  display: grid;
+  place-items: center;
+}
+
+/* Ensure content scrolls if needed */
+dialog[open] > form {
+  max-height: 85vh;
+  overflow: auto;
+}
 
 .card {
   @apply relative;
