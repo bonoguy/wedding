@@ -1,10 +1,12 @@
- <h2>Upload Photo</h2>
-    <!-- <input type="file" (change)="onFileSelected($event)">
-    <input type="text" [(ngModel)]="photoName" placeholder="Photo name"> -->
-    <button (click)="upload()">Upload</button>
+<h2>Upload Photo</h2>
+<!-- <input type="file" (change)="onFileSelected($event)">
+<input type="text" [(ngModel)]="photoName" placeholder="Photo name"> -->
+<button (click)="upload()">Upload</button>
 
-    <h3>Uploaded Photos</h3>
-    <div *ngFor="let p of photos">
-      <img [src]="p.url" width="200">
-      <p>{{ p.name }} – {{ p.date }}</p>
-    </div>
+<h3>Uploaded Photos</h3>
+@for (p of photos; track p) {
+  <div>
+    <img [src]="p.url" width="200">
+    <p>{{ p.name }} – {{ p.date }}</p>
+  </div>
+}
