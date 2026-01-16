@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { signInAnonymously } from 'firebase/auth';
 import {
   addDoc,
@@ -11,12 +11,15 @@ import {
   limit,
 } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { auth, db, storage } from './firebase';
+import { analytics, auth, db, logEvent, storage } from './firebase';
 import { Submission } from '../models/taskmaster.model';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TaskmasterService {
   private submissionsCol = collection(db, 'task_submissions');
+  private router = inject(Router);
 
   private isSiteUnlocked(): boolean {
     return sessionStorage.getItem('wedding_unlocked_v1') === 'true';
@@ -87,5 +90,16 @@ export class TaskmasterService {
       photoPath: photoPath || null,
       createdAt: serverTimestamp(),
     });
+  }
+
+  initPageViewTracking() {
+    this.router.events
+      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
+      .subscribe((e) => {
+        // Use urlAfterRedirects so it matches the final routed URL
+        logEvent(analytics, 'page_view', {
+          page_path: e.urlAfterRedirects,
+        });
+      });
   }
 }

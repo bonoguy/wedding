@@ -1,6 +1,7 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from './auth/auth.service';
+import { TaskmasterService } from './taskmaster';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,13 @@ import { AuthService } from './auth/auth.service';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit {
   authService = inject(AuthService);
+  taskMasterSercice = inject(TaskmasterService);
+
+  ngOnInit() {
+    this.taskMasterSercice.initPageViewTracking();
+  }
 
   names = 'Kristin & Travis';
   dateLine = 'Saturday, July 25, 2026 · Elk Ridge, SK';
