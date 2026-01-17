@@ -1,5 +1,5 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { AuthService } from './auth/auth.service';
 import { TaskmasterService } from './taskmaster';
 
@@ -8,7 +8,6 @@ import { TaskmasterService } from './taskmaster';
   imports: [
     RouterOutlet,
     RouterLink,
-    RouterLinkActive
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
