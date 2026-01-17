@@ -1,4 +1,61 @@
 <section class="card">
+  <div>
+    <div class="p-8 sm:p-10 lg:p-12">
+      <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+        Taskmaster
+      </p>
+
+      <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+        <!-- Copy -->
+        <div class="space-y-4">
+          <h2 class="font-serif text-3xl sm:text-4xl text-black/75">
+            Never seen Taskmaster? Where have you been hiding?
+          </h2>
+
+          <p class="text-black/60 leading-relaxed">
+            If you haven't seen the show, what are you doing with your life. <strong>Taskmaster</strong> is a British comedy show where people are given strange, creative,
+            and sometimes completely pointless tasks — with very little instruction.
+          </p>
+
+          <p class="text-black/60 leading-relaxed">
+            Everyone is given the same task, but the fun comes from how differently each person approaches it.
+            Clever solutions, unexpected ideas, and mild chaos are all encouraged.
+          </p>
+
+          <p class="text-black/60 leading-relaxed">
+            There are no “right” answers — just creativity, interpretation, and a lot of laughter.
+            That’s exactly the spirit we’re aiming for here.
+          </p>
+
+          <div class="pt-2 text-sm text-black/45">
+            Creativity beats perfection. Have fun with it.
+          </div>
+        </div>
+
+        <!-- Video -->
+        <div class="card-item">
+          <div class="aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-black/5 bg-black/5">
+            <!-- Replace VIDEO_ID later -->
+            <iframe
+              class="h-full w-full"
+              src="https://www.youtube.com/embed/nsatommddHU"
+              title="What is Taskmaster?"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p class="mt-4 text-sm text-black/45">
+            This short clip gives a good sense of the show’s energy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card">
     <div>
         <div>
             <div class="p-8 sm:p-10 lg:p-12">
@@ -20,15 +77,11 @@
                         </p>
 
                         <p class="text-black/60 leading-relaxed">
-                            Over the years we’ve even hosted a few “Taskmaster nights” with friends, making up
-                            ridiculous
-                            challenges and arguing (politely) about points.
+                            Over the years, we’ve even recreated it at home with friends, making up ridiculous challenges and arguing (politely) about points.
                         </p>
 
                         <p class="text-black/60 leading-relaxed">
-                            So we wanted to bring that same energy into the wedding — a few fun, low-pressure tasks you
-                            can
-                            do before the day, just for bragging rights (and possibly some prizes or even a golden head).
+                           Bringing a few Taskmaster-style tasks into the wedding felt like the perfect way to share something we love with the people we love.
                         </p>
 
                         <div class="pt-2 text-sm text-black/45">
@@ -46,10 +99,6 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
-
-                        <p class="mt-4 text-sm text-black/45">
-                            If you’ve never seen it, this quick intro explains the vibe.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -57,6 +106,9 @@
 
     </div>
 </section>
+
+
+
 
 @for (t of tasks; track t.id) {
 <section class="card">

@@ -13,20 +13,30 @@ export class HomeComponent {
   schedule = [
     { time: '3:30 PM', title: 'Guests arrive' },
     { time: '4:00 PM', title: 'Ceremony' },
-    { time: '4:30 PM', title: 'Cocktails & photos' },
+    { time: '4:30 PM', title: 'Cocktails' },
     { time: '6:00 PM', title: 'Dinner' },
     { time: '8:00 PM', title: 'First dance & party' },
   ];
 
-  photoUrl = '../assets/images/2025-1.jpg'; // <- put your image here
+  photoUrl = '../assets/images/2025-3.jpg'; // <- put your image here
 
   gallery = [
-    { src: '../assets/images/2025-1.jpg', alt: 'Kristin & Travis — engagement photo 1' },
-    { src: '../assets/images/2025-1.jpg', alt: 'Kristin & Travis — engagement photo 2' },
-    { src: '../assets/images/2025-1.jpg', alt: 'Kristin & Travis — engagement photo 3' },
-    { src: '../assets/images/2025-1.jpg', alt: 'Kristin & Travis — engagement photo 4' },
-    { src: '../assets/images/2025-1.jpg', alt: 'Kristin & Travis — engagement photo 5' },
-    { src: '../assets/images/2025-1.jpg', alt: 'Kristin & Travis — engagement photo 6' },
+    
+    
+    { src: '../assets/images/us-3.jpg', alt: 'Kristin & Travis — engagement photo 1' },
+    { src: '../assets/images/us-7.jpg', alt: 'Kristin & Travis — Engaged!' },
+    { src: '../assets/images/us-4.jpg', alt: 'Kristin & Travis — engagement photo 2' },
+    { src: '../assets/images/us-2.JPG', alt: 'Kristin & Travis — Cancun' },
+    { src: '../assets/images/us-5.jpg', alt: 'Kristin & Travis — engagement photo 3' },
+    { src: '../assets/images/us-14.jpg', alt: 'Kristin & Travis — Stairs at Cabin' },
+    { src: '../assets/images/us-6.jpg', alt: 'Kristin & Travis — engagement photo 4' },
+    { src: '../assets/images/us-11.jpg', alt: 'Kristin & Travis — Halloween' },
+    { src: '../assets/images/us-12.jpg', alt: 'Kristin & Travis — Hammock Lounging' },
+    { src: '../assets/images/us-13.jpg', alt: 'Kristin & Travis — At the Cabin' },
+    { src: '../assets/images/us-15.jpg', alt: 'Kristin & Travis — Halloween 2' },
+    { src: '../assets/images/us-17.jpg', alt: 'Kristin & Travis — Cabin Dock' },
+    { src: '../assets/images/us-18.jpg', alt: 'Kristin & Travis — Our Home' },
+    { src: '../assets/images/us-1.JPG', alt: 'Kristin & Travis — Space Mountain' },
   ];
 
   ourStory = {
@@ -52,7 +62,7 @@ export class HomeComponent {
   };
 
   rsvp = {
-    email: 'youremail@example.com', // replace
+    email: 'kristinandtravis.wedding@gmail.com', // replace
     deadline: 'May 30',
     subject: 'RSVP — Kristin & Travis',
     body: `Hi Kristin & Travis,
