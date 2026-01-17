@@ -21,8 +21,8 @@ export class HomeComponent {
   photoUrl = '../assets/images/2025-3.jpg'; // <- put your image here
 
   gallery = [
-    
-    
+
+
     { src: '../assets/images/us-3.jpg', alt: 'Kristin & Travis — engagement photo 1' },
     { src: '../assets/images/us-7.jpg', alt: 'Kristin & Travis — Engaged!' },
     { src: '../assets/images/us-4.jpg', alt: 'Kristin & Travis — engagement photo 2' },
@@ -40,23 +40,38 @@ export class HomeComponent {
   ];
 
   ourStory = {
-    eyebrow: 'A little backstory',
+    eyebrow: 'The little moments that led us here',
     title: 'Our story',
     intro:
-      "We’ll add a few paragraphs here — the fun parts, the meaningful parts, and how we ended up planning a weekend in Elk Ridge with our favorite people.",
-    // Optional: split into sections if you want nicer layout
+      "Our story has been shaped by the places we’ve gone, the home we’ve built, and the quiet moments in between. This is how we found our way here.",
     highlights: [
       {
-        heading: 'How we met',
-        body: 'Write this part when you’re ready.',
+        heading: 'How it started',
+        body: [
+          'Our first date took place on a cold January evening. At the time, it was meant to be a one-time thing—Kristin was planning to move back to Nicaragua, after all. When those plans fell through, one date quickly turned into many, and we found ourselves spending more and more time together.',
+          'That first year was full of adventure. We squeezed in road trips, festivals, and memories that still make us smile—like the Swift Current Kite Festival, Halloween in Medicine Hat, and even a month-long stay in Nicaragua that confirmed what we were already starting to feel: this was something special.',
+        ]
       },
       {
-        heading: 'The proposal',
-        body: 'Write this part when you’re ready.',
+        heading: 'Our Life Now',
+        body: [
+          'In 2024, we took a big step and became homeowners, buying our first house together. Since then, we’ve loved slowly turning it into a place that feels like us—tackling small renovations, learning as we go, and creating a home we’re proud of.',
+          'We’ve also kept our love of travel alive, adding new memories along the way with trips to places like Cancun and Nova Scotia. Whether we’re at home or away, the best part has always been doing it together.'
+        ]
+      },
+      {
+        heading: 'The Engagement',
+        body: [
+          'During a special Easter week getaway at Christopher Lake, Kristin had no idea what was coming. The evening began like so many others—good conversation, a crackling fire, and the calm of being surrounded by nature.',
+          'Under the northern lights, Travis got down on one knee. Kristin said yes—and just like that, a new chapter began.'
+        ]
       },
       {
         heading: 'Why Elk Ridge',
-        body: 'Write this part when you’re ready.',
+        body: [
+          'The Eliason family cabin at Christopher Lake quickly became a place that meant a lot to us—a destination for quiet moments, laughter, and some of our favorite memories together. When it came time to choose a wedding location, Elk Ridge felt like an easy choice.',
+          'It gives us the chance to share a place we love deeply and celebrate surrounded by the northern forest that holds such a special place in our hearts.'
+        ]
       },
     ],
   };

@@ -33,8 +33,7 @@
                             Where to stay
                         </a>
 
-                        <a routerLink="/questions"
-                            class="button-secondary">
+                        <a routerLink="/questions" class="button-secondary">
                             Q + A
                         </a>
                     </div>
@@ -194,15 +193,18 @@
                 </p>
 
                 <!-- Highlight blocks -->
-                <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
                     @for(h of ourStory.highlights; track h.body) {
                     <article class="card-item">
                         <h3 class="font-serif text-xl text-black/75">
                             {{ h.heading }}
                         </h3>
+                        @for(b of h.body; track $index) {
                         <p class="mt-3 text-black/60 leading-relaxed">
-                            {{ h.body }}
+                            {{ b }}
                         </p>
+                        }
+
                     </article>
                     }
 

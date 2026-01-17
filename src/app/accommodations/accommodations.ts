@@ -15,8 +15,8 @@ export class Accommodations {
   };
 
   roomBlock = {
-    code: 1234,
-    deadline: 'April 30, 2026'
+    code: 197033,
+    deadline: 'March 26, 2026'
   }
 
   cabinOptions = [
