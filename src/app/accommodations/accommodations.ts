@@ -26,7 +26,7 @@ export class Accommodations {
       distance: '0–40 min',
       details: [
         'Prince Albert National Park',
-        'Greate Blue Heron Provincal Park (Emma/Anglin Lake)',
+        'Great Blue Heron Provincial Park (Emma/Anglin Lake)',
         'Christoper Lake'
       ]
     },
