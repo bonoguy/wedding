@@ -10,7 +10,7 @@ export class Questions {
   faq = [
     {
       question: 'What should I wear?',
-      answer: 'Dress up, but keep it comfortable for a summer evening. If you’d like, citrus-chic pops of color are very welcome.'
+      answer: 'Dress up, but keep it comfortable for a summer evening. Think citrus-chic, pops of color are very welcome.'
     },
     {
       question: 'Are kids welcome?',
@@ -18,7 +18,7 @@ export class Questions {
     },
     {
       question: 'Is there a registry?',
-      answer: 'Your presence truly means the most to us. If you’d like to give a gift, a contribution toward our next chapter would be sincerely appreciated. For those who prefer a physical gift, we’ve also put together a small registry here.',
+      answer: 'Your presence truly means the most to us. If you’d like to give a gift, a contribution toward our next chapter would be sincerely appreciated. If gift giving is your love language, you can check out our registry here.',
       linkText: 'View the registry',
       linkHref: 'https://example.com/registry',
 

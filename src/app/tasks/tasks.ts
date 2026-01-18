@@ -15,7 +15,7 @@ export class Tasks {
     {
       id: 'photoHuntTask',              // stable id used for Firestore path
       title: 'The Definitive Couple Photo Hunt',
-      description: 'Submit the best photo you can find of either member of the couple. Bonus points if both are in the photo, or if the photo captures their “true essence” (interpret that however you wish). Artistic edits, memes, and historic archives are all acceptable.',
+      description: 'Submit the best photo you can find of either Kristin or Travis. Bonus points if both are in the photo, or if the photo captures their “true essence” (interpret that however you wish). Artistic edits, memes, and historic archives are all acceptable and encouraged.',
       type: 'photo'          // controls photo upload
     },
     // {
@@ -33,7 +33,7 @@ export class Tasks {
     {
       id: 'logoTask',              // stable id used for Firestore path
       title: 'The Wedding Logo',
-      description: 'Design a new wedding logo for the couple using only items found in your kitchen. It must somehow represent love, unity, or citrus energy (however you interpret that). Bonus points for slogans, chaos, or elegance against all odds.',
+      description: 'Design a new wedding logo for the couple using only items found in your kitchen. It must somehow represent love, unity, or citrus energy (however you interpret that). Bonus points for slogans, chaos, or elegance.',
       type: 'photo'          // controls photo upload
     },
     {

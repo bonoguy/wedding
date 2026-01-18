@@ -22,7 +22,7 @@ export class Accommodations {
   cabinOptions = [
     {
       name: 'Camping',
-      area: 'Elk Ridge',
+      //area: 'Elk Ridge',
       distance: '0–40 min',
       details: [
         'Prince Albert National Park',
@@ -32,7 +32,7 @@ export class Accommodations {
     },
     {
       name: 'Waskesiu Lake cabins',
-      area: 'Waskesiu / PANP',
+      //area: 'Waskesiu / PANP',
       distance: '15–25 min',
       details: [
         'Closest “town” feel — lake, restaurants, rentals',
@@ -42,7 +42,7 @@ export class Accommodations {
     },
     {
       name: 'Airbnb / private cabins nearby',
-      area: 'Lakeland area',
+      //area: 'Lakeland area',
       distance: '10–45 min',
       details: [
         'Best for groups splitting costs',

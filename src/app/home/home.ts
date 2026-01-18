@@ -37,6 +37,8 @@ export class HomeComponent {
     { src: '../assets/images/us-17.jpg', alt: 'Kristin & Travis — Cabin Dock' },
     { src: '../assets/images/us-18.jpg', alt: 'Kristin & Travis — Our Home' },
     { src: '../assets/images/us-1.JPG', alt: 'Kristin & Travis — Space Mountain' },
+    { src: '../assets/images/us-19.jpg', alt: 'Kristin & Travis — Kite Festival' },
+    { src: '../assets/images/us-20.jpg', alt: 'Kristin & Travis — Our first photo' },
   ];
 
   ourStory = {
@@ -63,14 +65,14 @@ export class HomeComponent {
         heading: 'The Engagement',
         body: [
           'During a special Easter week getaway at Christopher Lake, Kristin had no idea what was coming. The evening began like so many others—good conversation, a crackling fire, and the calm of being surrounded by nature.',
-          'Under the northern lights, Travis got down on one knee. Kristin said yes—and just like that, a new chapter began.'
+          'Under the northern lights, on the dock, at our favourite place, Travis got down on one knee. Kristin said yes—and just like that, a new chapter began.'
         ]
       },
       {
         heading: 'Why Elk Ridge',
         body: [
-          'The Eliason family cabin at Christopher Lake quickly became a place that meant a lot to us—a destination for quiet moments, laughter, and some of our favorite memories together. When it came time to choose a wedding location, Elk Ridge felt like an easy choice.',
-          'It gives us the chance to share a place we love deeply and celebrate surrounded by the northern forest that holds such a special place in our hearts.'
+          'The Eliason family cabin at Christopher Lake quickly became a place that meant a lot to us—a destination for quiet moments, fun with friends and family, and some of our favorite memories together. When it came time to choose a wedding location, Elk Ridge felt like an easy choice.',
+          'Choosing this location gives us the chance to share a place we love deeply and celebrate surrounded by the northern forest that holds such a special place in our hearts.'
         ]
       },
     ],

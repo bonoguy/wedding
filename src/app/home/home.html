@@ -60,8 +60,7 @@
                 </h2>
 
                 <p class="mt-4 max-w-xl mx-auto text-black/60 leading-relaxed">
-                    The easiest way to RSVP is to email us.
-                    Click below and it’ll start a message with everything you need.
+                    Click below and it’ll start your RSVP.
                 </p>
 
                 <div class="mt-8">
@@ -70,12 +69,12 @@
                     </a>
                 </div>
 
-                <p class="mt-6 text-sm text-black/45">
-                    Or send an email to <span>{{rsvp.email}}</span>
+                <p class="mt-6 text-black/60 ">
+                    Or send an email to <a class="underline" href="mailTo:{{rsvp.email}}">{{rsvp.email}}</a>
                 </p>
 
                 <p class="mt-6 text-sm text-black/45">
-                    Just include the names of everyone attending, and any allergies we should know about.
+                    Please include the names of everyone attending, and any allergies we should know about.
                 </p>
             </div>
         </div>
@@ -95,11 +94,7 @@
                 <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-black/75">
                     Schedule
                 </h2>
-
-                <p class="mt-3 max-w-xl text-black/60">
-                    We’ll keep things relaxed — this is just a general guide so you know what to expect.
-                </p>
-
+                
                 <!-- Timeline -->
                 <ol class="mt-10 space-y-6">
                     @for(item of schedule; track item.title) {
@@ -154,7 +149,7 @@
                 </div>
 
                 <!-- Grid -->
-                <div class="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
+                <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5">
                     @for(img of gallery; track img.src) {
                     <figure class="group relative overflow-hidden rounded-2xl bg-black/5 ring-1 ring-black/5">
                         <button type="button" class="block w-full text-left" (click)="openLightbox($index)"
