@@ -18,9 +18,9 @@ export class Questions {
     },
     {
       question: 'Is there a registry?',
-      answer: 'Your presence truly means the most to us. If you’d like to give a gift, a contribution toward our next chapter would be sincerely appreciated. If gift giving is your love language, you can check out our registry here.',
+      answer: 'Your presence truly means the most to us. If you’d like to give a gift, a contribution toward our next chapter would be sincerely appreciated. If gift giving is your love language, you can check out our registry here. The password is CITRUS2026',
       linkText: 'View the registry',
-      linkHref: 'https://example.com/registry',
+      linkHref: 'https://www.myregistry.com/wedding-registry/kristin-eliason-and-travis-bonokoski-/5278123',
 
     }
   ];
