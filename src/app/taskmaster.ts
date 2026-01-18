@@ -19,6 +19,7 @@ import { filter } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class TaskmasterService {
   private submissionsCol = collection(db, 'task_submissions');
+  private rsvpCol = collection(db, 'rsvp');
   private router = inject(Router);
 
   private isSiteUnlocked(): boolean {
@@ -101,5 +102,21 @@ export class TaskmasterService {
           page_path: e.urlAfterRedirects,
         });
       });
+  }
+
+  async submitRsvp(rsvp: {
+    names: string,
+    attending: boolean,
+    dietaryRestrictions: string,
+    comments: string
+  }) {
+    await this.ensureSignedIn();
+    await addDoc(this.rsvpCol, {
+      names: rsvp.names,
+      attending: rsvp.attending,
+      dietaryRestrictions: rsvp.dietaryRestrictions,
+      comments: rsvp.comments,
+      createdAt: serverTimestamp(),
+    });
   }
 }

@@ -64,9 +64,9 @@
                 </p>
 
                 <div class="mt-8">
-                    <a class="button-primary" [href]="rsvpMailto">
-                        RSVP by email →
-                    </a>
+                    <div class="button-primary" (click)="openRsvp()">
+                        RSVP →
+                    </div>
                 </div>
 
                 <p class="mt-6 text-black/60 ">
@@ -94,7 +94,7 @@
                 <h2 class="mt-4 font-serif text-3xl sm:text-4xl text-black/75">
                     Schedule
                 </h2>
-                
+
                 <!-- Timeline -->
                 <ol class="mt-10 space-y-6">
                     @for(item of schedule; track item.title) {
@@ -264,3 +264,99 @@
     </div>
 </div>
 }
+
+<dialog #rsvpDialog class="rounded-3xl p-0 backdrop:bg-black/40">
+    <form [formGroup]="form" (ngSubmit)="submitRsvp()" class="w-[92vw] max-w-lg">
+        <div class="rounded-3xl bg-white p-6 sm:p-8 space-y-4">
+            <h2 class="font-serif text-2xl text-black/75">
+                RSVP
+            </h2>
+
+            @if(!submitted()) {
+            <!-- Names -->
+            <label class="block text-sm text-black/55">
+                Names
+                <textarea rows="2" formControlName="names" required
+                    class="mt-2 w-full rounded-xl bg-white/80 ring-1 ring-black/10 px-4 py-3"
+                    placeholder="e.g., Kristin & Travis"></textarea>
+                <small>
+                    Please enter at least one name.
+                </small>
+            </label>
+
+            <!-- Attendance -->
+            <fieldset class="block text-sm text-black/55">
+                <legend class="pb-5">Will you be attending?</legend>
+                <div class="flex flex-row flex-wrap">
+                    <label
+                        class="mt-2 cursor-pointer w-full rounded-xl ring-1 ring-black/10 px-4 py-3 mr-3"
+                        [class]="{'bg-[#F7F1E7]': form.controls.attending.value, 'bg-white/80': !form.controls.attending.value}">
+                        <input type="radio" formControlName="attending" [value]="true" />
+                        Yes, can’t wait!
+                    </label>
+
+                    <label class="mt-2 cursor-pointer w-full rounded-xl bg-white/80 ring-1 ring-black/10 px-4 py-3"
+                        [class]="{'bg-[#F7F1E7]': !form.controls.attending.value, 'bg-white/80': form.controls.attending.value}">
+                        <input type="radio" formControlName="attending" [value]="false" />
+                        No (we’ll miss you)
+                    </label>
+                </div>
+
+                <small class="block pt-4">
+                    Please select an option.
+                </small>
+            </fieldset>
+
+            <!-- Dietary -->
+            <label class="block text-sm text-black/55">
+                Dietary restrictions (optional)
+                <textarea formControlName="dietaryRestrictions" rows="2"
+                    class="mt-2 w-full rounded-xl bg-white/80 ring-1 ring-black/10 px-4 py-3"
+                    placeholder="Vegetarian, gluten-free, allergies…"></textarea>
+            </label>
+
+            <!-- Comments -->
+            <label class="block text-sm text-black/55">
+                Comments (optional)
+                <textarea formControlName="comments" rows="3"
+                    class="mt-2 w-full rounded-xl bg-white/80 ring-1 ring-black/10 px-4 py-3"
+                    placeholder="Anything you'd like us to know?"></textarea>
+            </label>
+            }
+            @else {
+            <h2
+                class="bg-[#F7F1E7] flex font-serif justify-center mt-2 px-4 py-3 ring-1 ring-black/10 rounded-xl text-2xl text-black/75 w-full">
+                Received — thank you! 💛
+            </h2>
+
+            }
+
+
+            <!-- Actions -->
+            <div class="flex justify-end gap-3 pt-4">
+                @if(!submitted()) {
+                <button type="button" class="rounded-full px-4 py-2 text-sm text-black/60 cursor-pointer"
+                    (click)="closeRsvp()" [disabled]="submitting">
+                    Cancel
+                </button>
+
+
+
+                <button type="submit" class="button-primary" [disabled]="form.invalid || submitting">
+                    {{ submitting ? 'Sending…' : 'Submit RSVP' }}
+                </button>
+                }
+                @else {
+                <button class="button-primary" (click)="closeRsvp()">
+                    Close
+                </button>
+                }
+            </div>
+            @if(status() && !submitted()) {
+            <p class="status">{{ status() }}</p>
+            }
+        </div>
+
+
+    </form>
+</dialog>

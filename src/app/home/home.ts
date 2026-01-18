@@ -1,15 +1,21 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TaskmasterService } from '../taskmaster';
 
 @Component({
   selector: 'app-home',
   imports: [
-    RouterLink
-  ],
+    RouterLink,
+    ReactiveFormsModule,
+],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class HomeComponent {
+  private formBuilder = inject(FormBuilder);
+  private taskService = inject(TaskmasterService);
+
   schedule = [
     { time: '3:30 PM', title: 'Guests arrive' },
     { time: '4:00 PM', title: 'Ceremony' },
@@ -93,6 +99,66 @@ Allergies or dietary restrictions (if any):
 Looking forward to celebrating with you!
 `,
   };
+
+  readonly rsvpDialog = viewChild.required<ElementRef<HTMLDialogElement>>('rsvpDialog');
+
+  form = this.formBuilder.nonNullable.group({
+    names: ['', [Validators.required, Validators.minLength(2)]],
+    attending: [null as boolean | null, Validators.required],
+    dietaryRestrictions: [''],
+    comments: ['']
+  });
+
+  status = signal('');
+  submitting: boolean = false;
+  submitted = computed(() => this.status() == 'Received — thank you! 💛')
+  openRsvp() {
+    this.form.enable();
+    this.status.set('');
+    this.form.reset({
+      names: '',
+      attending: true,
+      dietaryRestrictions: '',
+      comments: ''
+    });
+    this.rsvpDialog().nativeElement.showModal();
+  }
+
+  closeRsvp() {
+    this.rsvpDialog().nativeElement.close();
+  }
+
+  async submitRsvp() {
+    if(this.submitted()) return this.closeRsvp();
+    if (this.form.invalid || this.submitting) return;
+
+
+    this.submitting = true;
+    this.status.set('');
+
+    try {
+      await this.taskService.submitRsvp({
+        names: this.form.controls.names.value ?? '',
+        attending: this.form.controls.attending.value ?? false,
+        dietaryRestrictions: this.form.controls.dietaryRestrictions.value ?? '',
+        comments: this.form.controls.comments.value ?? ''
+      });
+
+      this.status.set('Received — thank you! 💛');
+      this.form.reset();
+      this.form.disable();
+      // optional auto-close
+      //setTimeout(() => this.closeRsvp(), 5000);
+    }
+    catch (exc) {
+      console.log(exc)
+      this.status.set('Something went wrong — please try again.');
+    } finally {
+      this.submitting = false;
+    }
+  }
+
+
 
   get rsvpMailto(): string {
     return (
