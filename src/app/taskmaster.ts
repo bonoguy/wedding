@@ -9,12 +9,13 @@ import {
   where,
   onSnapshot,
   limit,
+  getCountFromServer,
 } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { analytics, auth, db, logEvent, storage } from './firebase';
 import { Submission } from '../models/taskmaster.model';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter, from, map, merge, Observable, of, shareReplay, startWith, Subject, switchMap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class TaskmasterService {
@@ -31,6 +32,41 @@ export class TaskmasterService {
     if (auth.currentUser) return;
     await signInAnonymously(auth);
   }
+
+  // Cache per-task observable so multiple subscribers share it
+  private readonly countStreams = new Map<string, Observable<number>>();
+
+  // Trigger refreshes: either a specific taskId or '*' for all
+  private readonly refresh$ = new Subject<string>();
+
+  count$(taskId: string): Observable<number> {
+    const existing = this.countStreams.get(taskId);
+    if (existing) return existing;
+
+    const stream$ = merge(
+      of(taskId), // initial load
+      this.refresh$.pipe(
+        filter(id => id === taskId || id === '*'),
+        map(() => taskId)
+      )
+    ).pipe(
+      // optional: ensures an emission immediately even if nobody triggers refresh
+      startWith(taskId),
+      switchMap(() => from(this.fetchCount(taskId))),
+      // share latest value among all subscribers, and keep it cached
+      shareReplay({ bufferSize: 1, refCount: true })
+    );
+
+    this.countStreams.set(taskId, stream$);
+    return stream$;
+  }
+
+  private async fetchCount(taskId: string): Promise<number> {
+    const q = query(this.submissionsCol, where('taskId', '==', taskId));
+    const snap = await getCountFromServer(q);
+    return snap.data().count;
+  }
+
 
   listenSubmissions(taskId: string, cb: (items: Submission[]) => void, onErr?: (e: unknown) => void) {
     const q = query(
@@ -76,7 +112,10 @@ export class TaskmasterService {
             onProgress(pct);
           },
           err => reject(err),
-          () => resolve()
+          () => {
+            this.refresh$.next(input.taskId);
+            return resolve();
+          }
         );
       });
 
@@ -91,6 +130,10 @@ export class TaskmasterService {
       photoPath: photoPath || null,
       createdAt: serverTimestamp(),
     });
+  }
+
+  refreshCounts(taskId: string) {
+    this.refresh$.next(taskId);
   }
 
   initPageViewTracking() {

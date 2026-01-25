@@ -218,3 +218,41 @@ dialog[open] > form {
   @apply inline-flex items-center justify-center rounded-full border border-black/10 bg-white/60 px-5 py-3 text-sm font-medium text-black/70 shadow-sm hover:bg-white/80 transition cursor-pointer;
 }
 
+.input-file {
+  @apply
+    mt-2
+    block
+    w-full
+    text-sm
+    rounded-lg
+    border
+    border-black/15
+    bg-white
+    px-3
+    py-2
+    text-black/70
+    focus:outline-none
+    focus:ring-2
+    focus:ring-[#6B8E4E]/40
+    focus:border-[#6B8E4E];
+
+  &::file-selector-button {
+    @apply
+      mr-4
+      rounded-md
+      border-0
+      bg-[#EAF4EE]
+      px-4
+      py-2
+      text-sm
+      font-medium
+      text-[#3F7D5A]
+      cursor-pointer
+      transition-colors;
+  }
+
+  &::file-selector-button:hover {
+    @apply bg-[#DDEFE6];
+  }
+}
+
