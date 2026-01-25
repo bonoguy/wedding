@@ -67,22 +67,6 @@ export class TaskmasterService {
     return snap.data().count;
   }
 
-
-  listenSubmissions(taskId: string, cb: (items: Submission[]) => void, onErr?: (e: unknown) => void) {
-    const q = query(
-      this.submissionsCol,
-      where('taskId', '==', taskId),
-      orderBy('createdAt', 'desc'),
-      limit(200)
-    );
-
-    return onSnapshot(
-      q,
-      snap => cb(snap.docs.map(d => ({ id: d.id, ...(d.data() as any) }))),
-      err => onErr?.(err)
-    );
-  }
-
   async createSubmission(input: {
     taskId: string;
     name: string;
