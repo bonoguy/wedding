@@ -22,9 +22,22 @@
     <div class="flex list-none items-center justify-between
              px-5 py-4 text-sm font-medium">
       <div class="flex flex-wrap justify-between w-full text-center">
+        @if(submissionCount() == 0) {
+        <span class="">
+          Be the first to complete this task.
+        </span>
+        }
+        @else if (submissionCount() == 1) {
+        <span class="">
+          1 participant has completed this task.
+        </span>
+        }
+        @else {
         <span class="">
           {{ submissionCount() }} other participants have completed this task
         </span>
+        }
+
 
       </div>
     </div>

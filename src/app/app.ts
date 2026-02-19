@@ -51,7 +51,7 @@ export class App implements OnInit {
     { label: 'Home', href: '/home' },
     { label: 'Accommodations', href: '/accommodations' },
     { label: 'Q + A', href: '/questions' },
-    { label: 'Tasks', href: '/tasks' },
+    { label: 'Pre-wedding challenges', href: '/tasks' },
   ];
 
 

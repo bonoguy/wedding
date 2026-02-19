@@ -13,7 +13,8 @@
           </h2>
 
           <p class="text-black/60 leading-relaxed">
-            If you haven't seen the show, you're in for a treat. <strong>Taskmaster</strong> is a British comedy show where people are given strange, creative,
+            If you haven't seen the show, you're in for a treat. <strong>Taskmaster</strong> is a British comedy show
+            where people are given strange, creative,
             and sometimes completely pointless tasks — with very little instruction.
           </p>
 
@@ -36,10 +37,7 @@
         <div class="card-item">
           <div class="aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-black/5 bg-black/5">
             <!-- Replace VIDEO_ID later -->
-            <iframe
-              class="h-full w-full"
-              src="https://www.youtube.com/embed/nsatommddHU"
-              title="What is Taskmaster?"
+            <iframe class="h-full w-full" src="https://www.youtube.com/embed/nsatommddHU" title="What is Taskmaster?"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
@@ -56,71 +54,82 @@
 </section>
 
 <section class="card">
+  <div>
     <div>
-        <div>
-            <div class="p-8 sm:p-10 lg:p-12">
-                <p class="text-xs tracking-[0.28em] uppercase text-black/40">
-                    Barrels of Fun
-                </p>
+      <div class="p-8 sm:p-10 lg:p-12">
+        <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+          Barrels of Fun
+        </p>
 
-                <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-                    <!-- Copy -->
-                    <div class="space-y-4">
-                        <h2 class="font-serif text-3xl sm:text-4xl text-black/75">
-                            Why we’re doing this
-                        </h2>
+        <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+          <!-- Copy -->
+          <div class="space-y-4">
+            <h2 class="font-serif text-3xl sm:text-4xl text-black/75">
+              Why we’re doing this
+            </h2>
 
-                        <p class="text-black/60 leading-relaxed">
-                            Taskmaster has been one of our favorite shows to watch together — the perfect mix of
-                            creativity,
-                            chaos, and laughing until it hurts.
-                        </p>
+            <p class="text-black/60 leading-relaxed">
+              Taskmaster has been one of our favorite shows to watch together — the perfect mix of
+              creativity,
+              chaos, and laughing until it hurts.
+            </p>
 
-                        <p class="text-black/60 leading-relaxed">
-                            Over the years, we’ve even recreated it at home with friends, making up ridiculous challenges and arguing (politely) about points.
-                        </p>
+            <p class="text-black/60 leading-relaxed">
+              Over the years, we’ve even recreated it at home with friends, making up ridiculous challenges and arguing
+              (politely) about points.
+            </p>
 
-                        <p class="text-black/60 leading-relaxed">
-                           Bringing a few Taskmaster-style tasks into the wedding felt like the perfect way to share something we love with the people we love.
-                        </p>
+            <p class="text-black/60 leading-relaxed">
+              Bringing a few Taskmaster-style tasks into the wedding felt like the perfect way to share something we
+              love with the people we love.
+            </p>
 
-                        <p class="text-black/60 leading-relaxed">
-                           We will play the role of Taskmaster and will award the winners their grand prize at the reception.
-                        </p>
+            <p class="text-black/60 leading-relaxed">
+              We will play the role of Taskmaster and will award the winners their grand prize at the reception.
+            </p>
 
-                        <div class="pt-2 text-sm text-black/45">
-                            No pressure to do them all — pick one that feels fun. 
-                        </div>
-                    </div>
-
-                    <!-- Video -->
-                    <div class="card-item">
-                        <div class="aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-black/5 bg-black/5">
-                            <!-- Replace VIDEO_ID later -->
-                            <iframe class="h-full w-full" src="https://www.youtube.com/embed/z3SakvUSiQ4"
-                                title="Taskmaster intro" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
+            <div class="pt-2 text-sm text-black/45">
+              No pressure to do them all — pick one that feels fun.
             </div>
-        </div>
+          </div>
 
+          <!-- Video -->
+          <div class="card-item">
+            <div class="aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-black/5 bg-black/5">
+              <iframe class="h-full w-full" src="https://www.youtube.com/embed/z3SakvUSiQ4"
+                title="Our Taskmaster intro recreation" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <p class="mt-4 text-sm text-black/45">
+              We recreated the Taskmaster intro using personal videos — because of course we did.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+
+  </div>
 </section>
 
 
 
-
-@for (t of tasks; track t.id) {
 <section class="card">
-    <div>
-        <div class="p-8 sm:p-10 lg:p-12">
-            <app-task-card [task]="t"></app-task-card>
-        </div>
-    </div>
-</section>
+  <div>
+    <div class="p-8 sm:p-10 lg:p-12">
+      <p class="text-xs tracking-[0.28em] uppercase text-black/40">
+        The tasks
+      </p>
 
-}
+      <div class="mt-4 space-y-6">
+        @for (t of tasks; track t.id) {
+        <div class="card-item">
+          <app-task-card [task]="t"></app-task-card>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
